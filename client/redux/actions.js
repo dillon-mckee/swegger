@@ -1,8 +1,10 @@
+import fetch from 'isomorphic-fetch'
+
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const fetchDataSuccess = (data) => {
     return {
         type: FETCH_DATA_SUCCESS,
-        data: data
+        data
     };
 };
 
