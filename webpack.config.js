@@ -36,6 +36,29 @@ module.exports = [{
     },
 },
 {
+    context: __dirname + '/test',
+    entry: './tests.js',
+    target: 'node',
+    output: {
+       path: path.resolve(__dirname, 'build'),
+       filename: 'tests.js'
+   },
+   externals: nodeModules,
+    devtool: 'source-map',
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }
+        ]
+    },
+},
+{
     context: __dirname + '/server',
     entry: './server.js',
     output: {
@@ -49,7 +72,7 @@ module.exports = [{
           {
               test: /\.js$/,
               exclude: /(node_modules)/,
-              loader: 'babel-loader',
+              loader: 'babel',
               query: {
                   presets: ['es2015', 'react', 'stage-0']
               }

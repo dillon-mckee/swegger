@@ -1,4 +1,5 @@
 import actions from './actions';
+import { combineReducers } from 'redux';
 import update from 'react-addons-update';
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
 
 };
 
-const sweggerReducer = (state, action) => {
+export const sweggerReducer = (state, action) => {
     state = state || initialState;
     switch (action.type) {
         case 'FETCH_DATA_SUCCESS':
@@ -33,4 +34,4 @@ const sweggerReducer = (state, action) => {
         };
 };
 
-export default sweggerReducer;
+export default combineReducers({ sweggerReducer });
