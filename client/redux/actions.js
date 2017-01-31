@@ -4,7 +4,7 @@ export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const fetchDataSuccess = (data) => {
     return {
         type: FETCH_DATA_SUCCESS,
-        data
+        data: data
     };
 };
 
@@ -32,7 +32,6 @@ export const fetchData = () => {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             return dispatch(
                 fetchDataSuccess(data)
             );

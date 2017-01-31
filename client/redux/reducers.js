@@ -1,11 +1,12 @@
 import actions from './actions';
-import { combineReducers } from 'redux';
 import update from 'react-addons-update';
+import { combineReducers } from 'redux';
 
 const initialState = {
     hireMeText: '',
     portfolioURL: '',
     isModalOpen: false,
+    modalCount: 0
 
 };
 
@@ -21,9 +22,10 @@ export const sweggerReducer = (state, action) => {
             console.log(action.error);
         return state;
         case 'OPEN_MODAL':
-        console.log(state);
+            let newModalCount = state.modalCount + 1
             return update(state, {
-                isModalOpen: {$set: true}
+                isModalOpen: {$set: true},
+                modalCount: {$set: newModalCount}
       });
         case 'CLOSE_MODAL':
             return update(state, {

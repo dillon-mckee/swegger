@@ -42,3 +42,13 @@ Dev: runs watch and serve simultaneously
 ``` bash
 npm run dev
 ```
+
+Test: runs build and then runs test
+
+``` bash
+npm run test
+```
+
+## To-Do
+
+Implement testing for react-modal

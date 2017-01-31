@@ -4,7 +4,7 @@ import { fetchData, openModal, closeModal } from '../redux/actions';
 import GetButton from '../components/GetButton';
 const Modal = require('react-modal');
 
-{/*Style for Modal Content*/}
+// Style for modal contents
 let customStyles = {
     content: {
         top: '50%',
@@ -16,7 +16,7 @@ let customStyles = {
     }
 };
 
-class SweggerWindow extends React.Component {
+export class SweggerWindow extends React.Component {
     constructor(props) {
       super(props);
       this.getDataAndOpenModal = this.getDataAndOpenModal.bind(this);
@@ -40,6 +40,7 @@ class SweggerWindow extends React.Component {
                 {this.props.isModalOpen
                         ? <div>
                             <Modal isOpen={this.props.isModalOpen} onRequestClose={this.closeModal} contentLabel="HireMeModal" style={customStyles}>
+                                <h2>Redux Modal Count: {this.props.modalCount}</h2>
                                 <h2>{this.props.hireMeText}</h2>
                                 <h2>{this.props.portfolioURL}</h2>
                             </Modal>
@@ -52,9 +53,10 @@ class SweggerWindow extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
-        isModalOpen: state.isModalOpen,
-        hireMeText: state.hireMeText,
-        portfolioURL: state.portfolioURL
+        isModalOpen: state.sweggerReducer.sweggerReducer.isModalOpen,
+        hireMeText: state.sweggerReducer.sweggerReducer.hireMeText,
+        portfolioURL: state.sweggerReducer.sweggerReducer.portfolioURL,
+        modalCount: state.sweggerReducer.sweggerReducer.modalCount
     };
 };
 

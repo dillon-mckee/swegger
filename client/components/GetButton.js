@@ -3,8 +3,7 @@ import React from 'react';
 const GetButton = (props) => {
    return (
     <div className="get-button">
-<input type="button" value="Click me to open a modal and call the back-end!" onClick={props.onClick}>
-</input>
+<button type="button" onClick={props.onClick}>Click me to open a modal and call the back-end!</button>
     </div>
     );
 };
